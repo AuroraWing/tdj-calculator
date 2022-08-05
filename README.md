@@ -1,4 +1,4 @@
-# tdj-calculator1
+# tdj-calculator
 
 ## Project setup
 ```

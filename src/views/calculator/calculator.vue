@@ -9,8 +9,7 @@
 <script>
 import roleBoard from './components/roleBoard.vue'
 export default {
-  // eslint-disable-next-line vue/multi-word-component-names
-  name: 'calculator',
+  name: 'calculatorVue',
   components: { roleBoard },
   data () {
     return {}

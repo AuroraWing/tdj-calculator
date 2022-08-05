@@ -17,8 +17,7 @@
 <script>
 import CommonAside from '../components/CommonAside.vue'
 export default {
-  // eslint-disable-next-line vue/multi-word-component-names
-  name: 'main',
+  name: 'mainVue',
   data () {
     return {}
   },
@@ -35,6 +34,6 @@ export default {
 
 <style lang="less" scoped>
 .el-header {
-  background-color: beige;
+  background-color: rgb(25, 25, 22);
 }
 </style>

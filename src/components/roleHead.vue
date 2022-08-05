@@ -12,7 +12,7 @@
       />
     </div>
     <div class="heroHeadName">
-      <font>尉迟</font>
+      <text>尉迟</text>
     </div>
   </div>
 </template>
@@ -41,10 +41,29 @@ img {
     width: 100px;
     height: 100px;
     position: relative;
+    border-radius: 4px;
     box-sizing: border-box;
+    margin: 2px;
     box-shadow: 0 0 2px #000
-    // .heroHeadBg {
-    //     z-index: 1;
-    // }
+}
+.heroHeadBg {
+    z-index: 1;
+}
+.heroHeadImg {
+  z-index: 2;
+}
+.heroHeadName {
+  width: 100px;
+  background: rgba(0, 0, 0, 0.31);
+  text-align: center;
+  z-index: 3;
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  padding: 2px 0px;
+  line-height: 14px;
+  font-size: 12px;
+  font-weight: bolder;
+  text-shadow: #000 -1px 0 0, #763c12 0 -1px 0, #5d2b08 1px 0 0, #1d1515 0 1px 0;
 }
 </style>
