@@ -25,9 +25,11 @@ export default {
 .star {
   font-size: 22px;
   color: #666;
+  cursor:pointer
 }
 .activeStar {
   font-size: 22px;
   color: #F78233;
+  cursor:pointer
 }
 </style>

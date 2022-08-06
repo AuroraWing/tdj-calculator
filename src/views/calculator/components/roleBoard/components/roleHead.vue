@@ -1,7 +1,7 @@
 <template>
   <div class="heroHeadBox">
     <div class="heroHeadBg">
-      <img src="@/assets/ssr_bg.png" alt="" />
+      <img class="imgBg" src="@/assets/ssr_bg.png" alt="" />
     </div>
     <div class="heroHeadImg">
       <img
@@ -44,18 +44,33 @@ img {
     border-radius: 4px;
     box-sizing: border-box;
     margin: 2px;
-    box-shadow: 0 0 2px #000
+    box-shadow: 0 0 2px #000;
 }
 .heroHeadBox:hover {
-  box-shadow: 0 0 20px 2px #918f8f;/*盒子阴影*/
-  transition: all 0.5s;/*持续时间*/
+  box-shadow: 0 0 10px 2px #918f8f;/*盒子阴影*/
+  // transition: all 0.5s;/*持续时间*/
   cursor:pointer;
 }
 .heroHeadBg {
+  position: absolute;
+  width: 100px;
+  height: 100px;
   z-index: 1;
 }
 .heroHeadImg {
+  position: absolute;
+  width: 100px;
+  height: 100px;
   z-index: 2;
+  background: repeating-linear-gradient(-45deg,transparent 0%,rgb(255 255 255 / 0.5) 15%,transparent 50%);
+  background-size: 300%;
+  background-position: 0% 0%;
+  transition: background-position 1s;
+}
+.heroHeadImg:hover {
+  background-size: 300%;
+  background-position: 100% 100%;
+  transition: background-position 1s;
 }
 .heroHeadName {
   width: 100px;
