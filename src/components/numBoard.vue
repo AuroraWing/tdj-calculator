@@ -11,6 +11,7 @@
               size="small"
               type="number"
               v-model.number="item.num1"
+              oninput="if(value<0)value=0;if(value>10000)value=9999"
             ></el-input>
           </el-form-item>
         </el-col>
@@ -25,6 +26,7 @@
               size="small"
               type="number"
               v-model.number="item.num2"
+              oninput="if(value<0)value=0;if(value>10000)value=9999"
             ></el-input> </el-form-item
         ></el-col>
       </el-col>
@@ -63,7 +65,8 @@ export default {
 
     }
   },
-  methods: {}
+  methods: {
+  }
 }
 </script>
 
