@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import roleHead from '@/components/roleHead.vue'
-import starLevel from '@/components/starLevel.vue'
-import numBoard from '@/components/numBoard.vue'
+import roleHead from './components/roleHead.vue'
+import starLevel from './components/starLevel.vue'
+import numBoard from './components/numBoard.vue'
 
 export default {
   name: 'roleBoard',

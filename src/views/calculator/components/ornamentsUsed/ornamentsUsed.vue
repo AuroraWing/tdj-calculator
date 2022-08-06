@@ -1,20 +1,19 @@
 <template>
   <div class="ornamentsUsedBox">
-    1
+
+    <ornaments-card></ornaments-card>
   </div>
 </template>
 
 <script>
+import ornamentsCard from './components/ornamentsCard.vue'
 export default {
   name: 'ornamentsUsed',
   data () {
-    return {
-
-    }
+    return {}
   },
-  methods: {
-
-  }
+  methods: {},
+  components: { ornamentsCard }
 }
 </script>
 

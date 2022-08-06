@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import roleBoard from './components/roleBoard.vue'
-import ornamentsUsed from './components/ornamentsUsed.vue'
+import roleBoard from './components/roleBoard/roleBoard.vue'
+import ornamentsUsed from './components/ornamentsUsed/ornamentsUsed.vue'
 export default {
   name: 'calculatorVue',
   components: { roleBoard, ornamentsUsed },

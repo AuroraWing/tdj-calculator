@@ -46,8 +46,13 @@ img {
     margin: 2px;
     box-shadow: 0 0 2px #000
 }
+.heroHeadBox:hover {
+  box-shadow: 0 0 20px 2px #918f8f;/*盒子阴影*/
+  transition: all 0.5s;/*持续时间*/
+  cursor:pointer;
+}
 .heroHeadBg {
-    z-index: 1;
+  z-index: 1;
 }
 .heroHeadImg {
   z-index: 2;
