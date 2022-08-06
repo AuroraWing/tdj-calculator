@@ -1,16 +1,16 @@
 <template>
   <div class="calculationBox">
-    <div>
-      <role-board></role-board>
-    </div>
+    <role-board></role-board>
+    <ornaments-used></ornaments-used>
   </div>
 </template>
 
 <script>
 import roleBoard from './components/roleBoard.vue'
+import ornamentsUsed from './components/ornamentsUsed.vue'
 export default {
   name: 'calculatorVue',
-  components: { roleBoard },
+  components: { roleBoard, ornamentsUsed },
   data () {
     return {}
   },
