@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="starBox">
     <span v-for="item in 6" :key="item" :class="(starValue < item ? 'star' : 'activeStar')" @click="changeStarLevel(item)">&#9733;</span>
   </div>
 </template>
@@ -22,6 +22,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.starBox {
+  border-bottom: solid 1px #a7aeb5;
+}
 .star {
   font-size: 22px;
   color: #666;

@@ -149,6 +149,7 @@ export default {
 .el-row {
   height: 33%;
   justify-content: space-around;
+  align-items: center;
 }
 :deep(.el-form-item__label) {
   font-size: 12px;

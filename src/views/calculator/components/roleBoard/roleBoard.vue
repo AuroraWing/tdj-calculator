@@ -1,8 +1,9 @@
 <template>
   <div class="roleBoardBox">
-    <div>
+    <div class="leftBox">
       <role-head></role-head>
       <star-level></star-level>
+      <div class="textTip"><text>选择饰品</text></div>
     </div>
     <div class="numBoardBox">
       <num-board></num-board>
@@ -29,14 +30,24 @@ export default {
 .roleBoardBox {
   display: flex;
   box-sizing: border-box;
-  border: 1px solid #a7aeb5;
-  height: 140px;
+  // border: 1px solid #a7aeb5;
+  height: 160px;
   background-color: #eaecf0;
 }
+.leftBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .numBoardBox {
-  margin-left: 10px;
   padding: 4px;
-  border-left: solid 1px #a7aeb5;
+  border: solid 1px #a7aeb5;
   flex: 1
+}
+.textTip {
+  flex: 1;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
 }
 </style>
