@@ -1,6 +1,9 @@
 <template>
   <div class="ornamentsUsedBox">
-
+    <ornaments-card></ornaments-card>
+    <ornaments-card></ornaments-card>
+    <ornaments-card></ornaments-card>
+    <ornaments-card></ornaments-card>
     <ornaments-card></ornaments-card>
   </div>
 </template>
@@ -19,11 +22,12 @@ export default {
 
 <style lang="less" scoped>
 .ornamentsUsedBox {
-  padding-top: 5px;
+  // padding-top: 5px;
   display: flex;
+  justify-content: space-around;
   box-sizing: border-box;
   // border: 1px solid #a7aeb5;
-  height: 140px;
+  height: 100px;
   background-color: #eaecf0;
 }
 </style>

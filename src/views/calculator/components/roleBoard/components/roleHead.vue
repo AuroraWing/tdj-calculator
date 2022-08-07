@@ -1,4 +1,5 @@
 <template>
+<div class="page">
   <div class="heroHeadBox">
     <div class="heroHeadBg">
       <img class="imgBg" src="@/assets/ssr_bg.png" alt="" />
@@ -15,6 +16,7 @@
       <text>尉迟</text>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -32,6 +34,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.page {
+  width: 104px;
+    height: 104px;
+    position: relative;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 img {
     width: 100px;
     height: 100px;
@@ -45,10 +54,12 @@ img {
     box-sizing: border-box;
     margin: 2px;
     box-shadow: 0 0 2px #000;
+    transition: all 0.5s;
 }
 .heroHeadBox:hover {
+  margin: 1px;
   box-shadow: 0 0 10px 2px #918f8f;/*盒子阴影*/
-  // transition: all 0.5s;/*持续时间*/
+  transition: all 0.5s;/*持续时间*/
   cursor:pointer;
 }
 .heroHeadBg {
