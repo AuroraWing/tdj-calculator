@@ -1,13 +1,20 @@
 <template>
   <div class="cardBox">
-    <div class="textDiv">{{data.label}}</div>
+    <div class="textDiv">
+      {{data.label}}
+    </div>
     <div class="circularBox">
       <div class="animationBox">
         <img v-if="data.imgBg !== ''" :src="data.imgBg" alt="">
         <img class="bgAnimation" :src="data.imgSrc" alt="" :title="data.name">
       </div>
     </div>
-    <div class="textDiv">{{data.name}}</div>
+    <div class="textDiv" v-if="data.name">
+      {{data.name}}
+    </div>
+    <div class="textDiv" v-else>
+      无
+    </div>
     <div>
       <el-select v-model="value" class="m-2" placeholder="选择" size="small" fit-input-width>
       <el-option

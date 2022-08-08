@@ -84,7 +84,7 @@ export default {
       },
       rules: {
         hp: [
-          { required: true, message: '不能为空', trigger: 'change' },
+          { required: true, message: '不能为空', trigger: 'blur' },
           {
             pattern: /^[0-9]*$/,
             message: '必须为数字',

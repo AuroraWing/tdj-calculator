@@ -45,9 +45,9 @@ export default {
       },
       superWeapon: {
         label: '神兵',
-        imgSrc: 'https://patchwiki.biligame.com/images/tdj/thumb/1/1c/pm4ouah0x3yyboawejwio8rkt5pc0ew.png/160px-%E4%B8%87%E5%BF%B5%E8%BD%AE%E5%9B%9E%E9%98%B5.png',
+        imgSrc: '',
         imgBg: '',
-        name: '神兵',
+        name: '',
         option: []
       }
     }
