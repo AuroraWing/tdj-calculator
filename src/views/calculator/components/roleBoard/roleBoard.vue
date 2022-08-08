@@ -3,7 +3,7 @@
     <div class="leftBox">
       <role-head></role-head>
       <star-level></star-level>
-      <div class="textTip"><text>选择饰品</text></div>
+      <div class="textTip"><text>更变饰品</text></div>
     </div>
     <div class="numBoardBox">
       <num-board></num-board>

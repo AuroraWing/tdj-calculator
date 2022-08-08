@@ -22,12 +22,12 @@ export default {
 
 <style lang="less" scoped>
 .ornamentsUsedBox {
-  // padding-top: 5px;
+  padding: 6px 0px;
   display: flex;
   justify-content: space-around;
   box-sizing: border-box;
-  // border: 1px solid #a7aeb5;
-  height: 100px;
+  border-bottom: 1px solid #a7aeb5;
+  height: 110px;
   background-color: #eaecf0;
 }
 </style>
