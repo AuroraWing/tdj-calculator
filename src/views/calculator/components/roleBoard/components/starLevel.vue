@@ -9,10 +9,15 @@ export default {
   name: 'starLevel',
   data () {
     return {
-      starValue: 3
+      starValue: 6
     }
   },
   props: {},
+  watch: {
+    starValue () {
+      this.$emit('getstar')
+    }
+  },
   methods: {
     changeStarLevel (item) {
       this.starValue = item

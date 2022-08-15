@@ -134,6 +134,14 @@ export default {
       }
     }
   },
+  watch: {
+    form: {
+      handler: function () {
+        this.$emit('getform')
+      },
+      deep: true
+    }
+  },
   methods: {
   }
 }

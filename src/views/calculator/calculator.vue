@@ -1,9 +1,12 @@
 <template>
   <div class="calculationBox">
-    <role-board></role-board>
+    <role-board ref="boardRef"></role-board>
     <lineup-and-skill></lineup-and-skill>
     <ornaments-used></ornaments-used>
     <buff></buff>
+  </div>
+  <div>
+    <el-button @click="calculate">计算</el-button>
   </div>
 </template>
 
@@ -16,13 +19,31 @@ export default {
   name: 'calculatorVue',
   components: { roleBoard, ornamentsUsed, buff, lineupAndSkill },
   data () {
-    return {}
+    return {
+      form: [],
+      star: 6
+    }
   },
-  methods: {}
+  methods: {
+    calculate () {
+      this.getData()
+      this.check()
+    },
+    getData () {
+      this.form = this.$refs.boardRef.form
+      this.star = this.$refs.boardRef.star
+      console.log(this.form)
+    },
+    check () {
+    }
+  }
 }
 </script>
 
 <style lang="less" scoped>
+div {
+  display: inline-block;
+}
 .calculationBox {
   width: 400px;
   height: 100%;
