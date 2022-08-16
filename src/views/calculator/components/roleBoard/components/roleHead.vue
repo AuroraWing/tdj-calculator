@@ -5,12 +5,19 @@
       <img class="imgBg" src="@/assets/ssr_bg.png" alt="" />
     </div>
     <div class="heroHeadImg">
-      <img
-        src="@/assets/200px-头像_尉迟良.png"
-        alt="尉迟"
-        title="尉迟"
-        @click="chooseRole"
-      />
+      <el-popover placement="right" :width="400" trigger="click">
+        <template #reference>
+          <img
+            src="@/assets/200px-头像_尉迟良.png"
+            alt="尉迟"
+            title="尉迟"
+            @click="chooseRole"
+          />
+        </template>
+        <div>
+          <role-head-img :roleArray="roleArray"></role-head-img>
+        </div>
+      </el-popover>
     </div>
     <div class="heroHeadName">
       <text>尉迟</text>
@@ -20,10 +27,30 @@
 </template>
 
 <script>
+import roleHeadImg from '@/components/roleHeadImg.vue'
 export default {
   name: 'roleHead',
+  components: { roleHeadImg },
   data () {
-    return {}
+    return {
+      roleArray: [
+        {
+          roleName: '尉迟',
+          color: 'ssr',
+          imgSrc: require('@/assets/200px-头像_尉迟良.png')
+        },
+        {
+          roleName: '尉迟1',
+          color: 'sr',
+          imgSrc: require('@/assets/200px-头像_尉迟良.png')
+        },
+        {
+          roleName: '尉迟2',
+          color: 'r',
+          imgSrc: require('@/assets/200px-头像_尉迟良.png')
+        }
+      ]
+    }
   },
   methods: {
     chooseRole () {
@@ -36,10 +63,10 @@ export default {
 <style lang="less" scoped>
 .page {
   width: 104px;
-    height: 104px;
-    position: relative;
-    border-radius: 4px;
-    box-sizing: border-box;
+  height: 104px;
+  position: relative;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 img {
     width: 100px;

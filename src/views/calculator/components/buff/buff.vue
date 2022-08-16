@@ -55,7 +55,8 @@ export default {
           description: '造成伤害增加10%'
         },
         {
-          label: '神睿',
+          label: '极意II',
+          value: 'jiYi2',
           qualified: [
             'akt', 'mAkt'
           ],
