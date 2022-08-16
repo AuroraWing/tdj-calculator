@@ -8,12 +8,13 @@
       <img v-else-if="role.color === 'ssr'" class="imgBg" src="@/assets/ssr_bg.png" alt="" />
     </div>
     <div class="heroHeadImg">
-      <el-popover placement="right" :width="400" trigger="click">
+      <el-popover placement="right" :width="250" :visible="popoverVisible">
         <template #reference>
           <img
             :src="role.imgSrc"
             :alt="role.roleName"
             :title="role.roleName"
+            @click="popoverVisible = !popoverVisible"
           />
         </template>
         <div>
@@ -35,6 +36,7 @@ export default {
   components: { roleHeadImg },
   data () {
     return {
+      popoverVisible: false,
       role: {
         roleName: '尉迟',
         color: 'ssr',
@@ -42,27 +44,42 @@ export default {
       },
       roleArray: [
         {
-          roleName: '尉迟',
+          roleName: '尉迟绝',
           color: 'ssr',
           imgSrc: require('@/assets/200px-头像_尉迟良.png')
         },
         {
-          roleName: '尉迟1',
+          roleName: '尉迟极',
           color: 'sr',
           imgSrc: require('@/assets/200px-头像_尉迟良.png')
         },
         {
-          roleName: '尉迟2',
+          roleName: '尉迟卓',
           color: 'r',
           imgSrc: require('@/assets/200px-头像_尉迟良.png')
+        },
+        {
+          roleName: '尉迟凡',
+          color: 'n',
+          imgSrc: require('@/assets/200px-头像_尉迟良.png')
+        },
+        {
+          roleName: '冰璃',
+          color: 'ssr',
+          imgSrc: 'https://patchwiki.biligame.com/images/tdj/thumb/8/89/oc3vwl9xumfajgv9y83raemuri7i2o2.png/200px-%E5%A4%B4%E5%83%8F_%E5%86%B0%E7%92%83.png'
         }
       ]
     }
   },
+  watch: {
+    role () {
+      this.$emit('getRole')
+    }
+  },
   methods: {
     chooseRole (data) {
-      console.log('1', data)
       this.role = data
+      this.popoverVisible = false
     }
   }
 }

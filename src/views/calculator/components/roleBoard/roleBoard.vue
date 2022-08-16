@@ -1,8 +1,8 @@
 <template>
   <div class="roleBoardBox">
     <div class="leftBox">
-      <role-head></role-head>
-      <star-level ref="numStarLevel" @getstar="getstar"></star-level>
+      <role-head ref="roleHeadRef" @getRole="getRole"></role-head>
+      <star-level ref="starLevelRef" @getstar="getstar"></star-level>
       <div class="textTip"><text>更变饰品</text></div>
     </div>
     <div class="numBoardBox">
@@ -21,6 +21,7 @@ export default {
   components: { roleHead, starLevel, numBoard },
   data () {
     return {
+      role: {},
       form: [],
       star: 6
     }
@@ -28,11 +29,17 @@ export default {
   watch: {
   },
   methods: {
+    getRole () {
+      this.role = this.$refs.roleHeadRef.role
+      // console.log('getRole', this.role)
+    },
     getform () {
       this.form = this.$refs.numBoardRef.form
+      // console.log('getForm', this.form)
     },
     getstar () {
-      this.star = this.$refs.numStarLevel.starValue
+      this.star = this.$refs.starLevelRef.starValue
+      // console.log('getStar', this.star)
     }
   }
 }

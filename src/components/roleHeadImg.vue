@@ -44,6 +44,7 @@ export default {
 .heroHeadImgPage {
   width: 52px;
   height: 52px;
+  margin-right: 2px;
   display: inline-block;
   position: relative;
   border-radius: 4px;
