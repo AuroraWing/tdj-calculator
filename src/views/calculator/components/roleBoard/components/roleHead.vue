@@ -2,25 +2,27 @@
 <div class="page">
   <div class="heroHeadBox">
     <div class="heroHeadBg">
-      <img class="imgBg" src="@/assets/ssr_bg.png" alt="" />
+      <img v-if="role.color === 'n'" class="imgBg" src="@/assets/n_bg.png" alt="" />
+      <img v-else-if="role.color === 'r'" class="imgBg" src="@/assets/r_bg.png" alt="" />
+      <img v-else-if="role.color === 'sr'" class="imgBg" src="@/assets/sr_bg.png" alt="" />
+      <img v-else-if="role.color === 'ssr'" class="imgBg" src="@/assets/ssr_bg.png" alt="" />
     </div>
     <div class="heroHeadImg">
       <el-popover placement="right" :width="400" trigger="click">
         <template #reference>
           <img
-            src="@/assets/200px-头像_尉迟良.png"
-            alt="尉迟"
-            title="尉迟"
-            @click="chooseRole"
+            :src="role.imgSrc"
+            :alt="role.roleName"
+            :title="role.roleName"
           />
         </template>
         <div>
-          <role-head-img :roleArray="roleArray"></role-head-img>
+          <role-head-img :roleArray="roleArray" @chooseRole=chooseRole($event,data)></role-head-img>
         </div>
       </el-popover>
     </div>
     <div class="heroHeadName">
-      <text>尉迟</text>
+      <text>{{role.roleName}}</text>
     </div>
   </div>
 </div>
@@ -33,6 +35,11 @@ export default {
   components: { roleHeadImg },
   data () {
     return {
+      role: {
+        roleName: '尉迟',
+        color: 'ssr',
+        imgSrc: require('@/assets/200px-头像_尉迟良.png')
+      },
       roleArray: [
         {
           roleName: '尉迟',
@@ -53,8 +60,9 @@ export default {
     }
   },
   methods: {
-    chooseRole () {
-      console.log('选择')
+    chooseRole (data) {
+      console.log('1', data)
+      this.role = data
     }
   }
 }

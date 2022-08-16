@@ -12,7 +12,7 @@
           :src="item.imgSrc"
           :alt="item.roleName"
           :title="item.roleName"
-          @click="chooseRole"
+          @click="chooseRole(item)"
         />
       </div>
       <div class="heroHeadName">
@@ -28,10 +28,15 @@ export default {
   data () {
     return {}
   },
+  emits: ['chooseRole'],
   props: {
     roleArray: Array
   },
-  methods: {}
+  methods: {
+    chooseRole (data) {
+      this.$emit('chooseRole', data)
+    }
+  }
 }
 </script>
 
