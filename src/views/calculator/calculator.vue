@@ -6,7 +6,7 @@
     <buff></buff>
   </div>
   <div>
-    <el-button @click="calculate">计算</el-button>
+    <el-button @click="calculate">计算1</el-button>
   </div>
 </template>
 
