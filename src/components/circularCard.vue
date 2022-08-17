@@ -5,8 +5,8 @@
     </div>
     <div class="circularBox">
       <div class="animationBox">
-        <img v-if="data.imgBg !== ''" :src="data.imgBg" alt="">
-        <img class="bgAnimation" :src="data.imgSrc" alt="" :title="data.name">
+        <img v-if="data.imgBg !== ''" :src="data.imgBg" alt="" @click="$emit('choose')">
+        <img class="bgAnimation" :src="data.imgSrc" alt="" :title="data.name" @click="$emit('choose')">
       </div>
     </div>
     <div class="textDiv" v-if="data.name">
