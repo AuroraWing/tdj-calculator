@@ -1,32 +1,55 @@
 <template>
-<div class="page">
-  <div class="heroHeadBox">
-    <div class="heroHeadBg">
-      <img v-if="role.color === 'n'" class="imgBg" src="@/assets/n_bg.png" alt="" />
-      <img v-else-if="role.color === 'r'" class="imgBg" src="@/assets/r_bg.png" alt="" />
-      <img v-else-if="role.color === 'sr'" class="imgBg" src="@/assets/sr_bg.png" alt="" />
-      <img v-else-if="role.color === 'ssr'" class="imgBg" src="@/assets/ssr_bg.png" alt="" />
-    </div>
-    <div class="heroHeadImg">
-      <el-popover placement="right" :width="250" :visible="popoverVisible">
-        <template #reference>
-          <img
-            :src="role.imgSrc"
-            :alt="role.roleName"
-            :title="role.roleName"
-            @click="popoverVisible = !popoverVisible"
-          />
-        </template>
-        <div>
-          <role-head-img :roleArray="roleArray" @chooseRole=chooseRole($event,data)></role-head-img>
-        </div>
-      </el-popover>
-    </div>
-    <div class="heroHeadName">
-      <text>{{role.roleName}}</text>
+  <div class="page">
+    <div class="heroHeadBox">
+      <div class="heroHeadBg">
+        <img
+          v-if="role.color === 'n'"
+          class="imgBg"
+          src="@/assets/n_bg.png"
+          alt=""
+        />
+        <img
+          v-else-if="role.color === 'r'"
+          class="imgBg"
+          src="@/assets/r_bg.png"
+          alt=""
+        />
+        <img
+          v-else-if="role.color === 'sr'"
+          class="imgBg"
+          src="@/assets/sr_bg.png"
+          alt=""
+        />
+        <img
+          v-else-if="role.color === 'ssr'"
+          class="imgBg"
+          src="@/assets/ssr_bg.png"
+          alt=""
+        />
+      </div>
+      <div class="heroHeadImg">
+        <el-popover placement="right" :width="270" :visible="popoverVisible">
+          <template #reference>
+            <img
+              :src="role.imgSrc"
+              :alt="role.roleName"
+              :title="role.roleName"
+              @click="popoverVisible = !popoverVisible"
+            />
+          </template>
+          <div>
+            <role-head-img
+              :roleArray="roleArray"
+              @chooseRole="chooseRole($event, data)"
+            ></role-head-img>
+          </div>
+        </el-popover>
+      </div>
+      <div class="heroHeadName">
+        <text>{{ role.roleName }}</text>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -43,6 +66,11 @@ export default {
         imgSrc: require('@/assets/200px-头像_尉迟良.png')
       },
       roleArray: [
+        {
+          roleName: '尉迟绝',
+          color: 'ssr',
+          imgSrc: require('@/assets/200px-头像_尉迟良.png')
+        },
         {
           roleName: '尉迟绝',
           color: 'ssr',
@@ -66,7 +94,8 @@ export default {
         {
           roleName: '冰璃',
           color: 'ssr',
-          imgSrc: 'https://patchwiki.biligame.com/images/tdj/thumb/8/89/oc3vwl9xumfajgv9y83raemuri7i2o2.png/200px-%E5%A4%B4%E5%83%8F_%E5%86%B0%E7%92%83.png'
+          imgSrc:
+            'https://patchwiki.biligame.com/images/tdj/thumb/8/89/oc3vwl9xumfajgv9y83raemuri7i2o2.png/200px-%E5%A4%B4%E5%83%8F_%E5%86%B0%E7%92%83.png'
         }
       ]
     }
@@ -75,6 +104,12 @@ export default {
     role () {
       this.$emit('getRole')
     }
+  },
+  mounted () {
+    // 页面监听，添加鼠标抬起事件，关闭popover窗口
+    document.addEventListener('mouseup', (e) => {
+      this.popoverVisible = false
+    })
   },
   methods: {
     chooseRole (data) {
@@ -94,25 +129,25 @@ export default {
   box-sizing: border-box;
 }
 img {
-    width: 100px;
-    height: 100px;
-    position: absolute;
+  width: 100px;
+  height: 100px;
+  position: absolute;
 }
 .heroHeadBox {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin: 2px;
-    box-shadow: 0 0 2px #000;
-    transition: all 0.5s;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 2px;
+  box-shadow: 0 0 2px #000;
+  transition: all 0.5s;
 }
 .heroHeadBox:hover {
   margin: 1px;
-  box-shadow: 0 0 10px 2px #918f8f;/*盒子阴影*/
-  transition: all 0.5s;/*持续时间*/
-  cursor:pointer;
+  box-shadow: 0 0 10px 2px #918f8f; /*盒子阴影*/
+  transition: all 0.5s; /*持续时间*/
+  cursor: pointer;
 }
 .heroHeadBg {
   position: absolute;
@@ -125,7 +160,12 @@ img {
   width: 100px;
   height: 100px;
   z-index: 2;
-  background: repeating-linear-gradient(-45deg,transparent 0%,rgb(255 255 255 / 0.5) 15%,transparent 50%);
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent 0%,
+    rgb(255 255 255 / 0.5) 15%,
+    transparent 50%
+  );
   background-size: 300%;
   background-position: 0% 0%;
   transition: background-position 1s;
