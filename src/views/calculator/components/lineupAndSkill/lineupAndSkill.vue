@@ -23,7 +23,9 @@
       <template #reference>
         <circular-card :data="skill_1" @choose="visible.skill_1 = !visible.skill_1"></circular-card>
       </template>
-      <template #popUp> 1 </template>
+      <template #popUp>
+        <circular-img v-for="item in lintupArray" :key="item" :data="item"></circular-img>
+      </template>
     </choose-popover>
 
     <choose-popover
@@ -50,17 +52,8 @@
       <template #popUp> 1 </template>
     </choose-popover>
 
-    <choose-popover
-      :placement="popover.placement"
-      :width="popover.width"
-      :visible="visible.superWeapon"
-      :offset="popover.offset"
-    >
-      <template #reference>
-        <circular-card :data="superWeapon" @choose="visible.superWeapon = !visible.superWeapon"></circular-card>
-      </template>
-      <template #popUp> 1 </template>
-    </choose-popover>
+    <circular-card :data="superWeapon" @choose="visible.superWeapon = !visible.superWeapon"></circular-card>
+
   </div>
 </template>
 
@@ -85,6 +78,7 @@ export default {
         skill_3: false,
         superWeapon: false
       },
+      // 全部战阵的数据数组，发请求获取
       lintupArray: [
         {
           label: '战阵',

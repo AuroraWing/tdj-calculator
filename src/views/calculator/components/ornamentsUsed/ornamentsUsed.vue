@@ -19,35 +19,44 @@ export default {
         imgSrc: 'https://patchwiki.biligame.com/images/tdj/thumb/5/5b/r42z88qqi8twd9dui6k7des0rh2r2g1.png/100px-%E9%A5%B0%E5%93%81_%E5%A4%A9%E7%8B%BC%E8%A1%80%E7%9C%BC.png',
         imgBg: require('@/assets/ssr_bg.png'),
         name: '',
-        option: []
+        options: [
+          {
+            label: '生效',
+            value: true
+          },
+          {
+            label: '不生效',
+            value: false
+          }
+        ]
       },
       bodyOrna: {
         label: '身部饰品',
         imgSrc: '',
         imgBg: '',
         name: '',
-        option: []
+        options: []
       },
       waistOrna: {
         label: '腰部饰品',
         imgSrc: '',
         imgBg: '',
         name: '',
-        option: []
+        options: []
       },
       handOrna: {
         label: '手部饰品',
         imgSrc: '',
         imgBg: '',
         name: '',
-        option: []
+        options: []
       },
       stone: {
         label: '魂石套装',
         imgSrc: '',
         imgBg: '',
         name: '',
-        option: []
+        options: []
       }
     }
   },

@@ -19,7 +19,7 @@
       <el-select v-model="value" class="m-2" placeholder="选择" size="small" fit-input-width>
       <el-option
         class="elOption"
-        v-for="item in options"
+        v-for="item in data.options"
         :key="item.value"
         :label="item.label"
         :value="item.value"
@@ -47,17 +47,7 @@ export default {
   },
   data () {
     return {
-      value: true,
-      options: [
-        {
-          label: '生效',
-          value: true
-        },
-        {
-          label: '不生效',
-          value: false
-        }
-      ]
+      value: ''
     }
   },
   methods: {
