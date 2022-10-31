@@ -1,12 +1,8 @@
 <template>
   <div class="cardBox">
-    <div class="textDiv">
-      {{data.label}}
-    </div>
     <div class="circularBox">
       <div class="animationBox">
-        <img v-if="data.imgBg !== ''" :src="data.imgBg" alt="" @click="$emit('choose')">
-        <img class="bgAnimation" :src="data.imgSrc" alt="" :title="data.name" @click="$emit('choose')">
+        <img class="bgAnimation" :src="data.img" alt="" :title="data.name" @click="$emit('choose')">
       </div>
     </div>
     <div class="textDiv" v-if="data.name">
@@ -19,9 +15,9 @@
       <el-select v-model="value" class="m-2" placeholder="选择" size="small" fit-input-width>
       <el-option
         class="elOption"
-        v-for="item in data.options"
+        v-for="item in options"
         :key="item.value"
-        :label="item.label"
+        :label="item.name"
         :value="item.value"
         />
       </el-select>
@@ -47,7 +43,11 @@ export default {
   },
   data () {
     return {
-      value: ''
+      value: '',
+      options: [
+        { name: '生效', value: 0 },
+        { name: '不生效', value: 0 }
+      ]
     }
   },
   methods: {
@@ -56,16 +56,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.cardBox {
-  padding: 2px 4px;
-  width: 60px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-}
+// .cardBox {
+//   padding: 2px 4px;
+//   width: 60px;
+//   height: 90%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+//   align-items: center;
+//   font-size: 13px;
+// }
 .circularBox {
   width: 50px;
   height: 50px;

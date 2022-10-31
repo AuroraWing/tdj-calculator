@@ -28,21 +28,23 @@
         />
       </div>
       <div class="heroHeadImg">
-        <el-popover placement="right" :width="270" :visible="popoverVisible">
+        <el-popover placement="right" :width="325" :visible="popoverVisible">
           <template #reference>
             <img
-              :src="role.imgSrc"
-              :alt="role.roleName"
-              :title="role.roleName"
-              @click="popoverVisible = !popoverVisible"
+            :src="role.imgSrc"
+            :alt="role.roleName"
+            :title="role.roleName"
+            @click="popoverVisible = !popoverVisible"
             />
           </template>
-          <div>
-            <role-head-img
-              :roleArray="roleArray"
-              @chooseRole="chooseRole($event, data)"
-            ></role-head-img>
-          </div>
+          <template #default>
+            <el-scrollbar height="400px">
+              <role-head-img
+                :roleArray="roleArray"
+                @chooseRole="chooseRole($event, data)"
+              ></role-head-img>
+            </el-scrollbar>
+          </template>
         </el-popover>
       </div>
       <div class="heroHeadName">
@@ -61,49 +63,21 @@ export default {
     return {
       popoverVisible: false,
       role: {
-        roleName: '尉迟',
+        roleName: '冰璃',
         color: 'ssr',
-        imgSrc: require('@/assets/200px-头像_尉迟良.png')
+        // imgSrc: require('@/assets/200px-头像_尉迟良.png')
+        imgSrc: 'https://patchwiki.biligame.com/images/tdj/thumb/8/89/oc3vwl9xumfajgv9y83raemuri7i2o2.png/200px-%E5%A4%B4%E5%83%8F_%E5%86%B0%E7%92%83.png'
       },
-      roleArray: [
-        {
-          roleName: '尉迟绝',
-          color: 'ssr',
-          imgSrc: require('@/assets/200px-头像_尉迟良.png')
-        },
-        {
-          roleName: '尉迟绝',
-          color: 'ssr',
-          imgSrc: require('@/assets/200px-头像_尉迟良.png')
-        },
-        {
-          roleName: '尉迟极',
-          color: 'sr',
-          imgSrc: require('@/assets/200px-头像_尉迟良.png')
-        },
-        {
-          roleName: '尉迟卓',
-          color: 'r',
-          imgSrc: require('@/assets/200px-头像_尉迟良.png')
-        },
-        {
-          roleName: '尉迟凡',
-          color: 'n',
-          imgSrc: require('@/assets/200px-头像_尉迟良.png')
-        },
-        {
-          roleName: '冰璃',
-          color: 'ssr',
-          imgSrc:
-            'https://patchwiki.biligame.com/images/tdj/thumb/8/89/oc3vwl9xumfajgv9y83raemuri7i2o2.png/200px-%E5%A4%B4%E5%83%8F_%E5%86%B0%E7%92%83.png'
-        }
-      ]
+      roleArray: []
     }
   },
+  created () {
+    this.getHeadImg()
+  },
   watch: {
-    role () {
-      this.$emit('getRole')
-    }
+    // role () {
+    //   this.$emit('getRole')
+    // }
   },
   mounted () {
     // 页面监听，添加鼠标抬起事件，关闭popover窗口
@@ -115,6 +89,15 @@ export default {
     chooseRole (data) {
       this.role = data
       this.popoverVisible = false
+    },
+    async getHeadImg () {
+      const axios = require('axios')
+      try {
+        const resHeroHead = await axios.get('http://localhost:5050/data/heroHead')
+        this.roleArray = resHeroHead.data
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 }

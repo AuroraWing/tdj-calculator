@@ -8,6 +8,12 @@
   <div>
     <el-button @click="calculate">计算1</el-button>
   </div>
+  <div class="calculationBox">
+    <role-board ref="boardRef2"></role-board>
+    <lineup-and-skill></lineup-and-skill>
+    <ornaments-used></ornaments-used>
+    <buff></buff>
+  </div>
 </template>
 
 <script>
@@ -20,46 +26,28 @@ export default {
   components: { roleBoard, ornamentsUsed, buff, lineupAndSkill },
   data () {
     return {
+      heroName: '',
       form: [],
       star: 6,
       OrnamentsList: []
     }
   },
   created () {
-    this.axios1()
   },
   methods: {
     calculate () {
-      this.getData()
+      this.getBoardData()
     },
-    getData () {
-      this.form = this.$refs.boardRef.form
+    getBoardData () {
+      // 通过 $refs 调用子组件方法，更新子组件数据
+      this.$refs.boardRef.getRole()
+      this.$refs.boardRef.getstar()
+      this.$refs.boardRef.getform()
+      // 通过 $refs 获取子组件数据
+      this.heroName = this.$refs.boardRef.role
       this.star = this.$refs.boardRef.star
-      console.log(this.form)
-    },
-    async axios1 () {
-      const axios = require('axios')
-      try {
-        const response = await axios.get('http://localhost:5050/heroData')
-        this.OrnamentsList = response.data
-        // console.log(response)
-      } catch (error) {
-        console.error(error)
-      }
-      // axios({
-      //   methods: 'get',
-      //   url: 'http://localhost:5050/heroData'
-      // })
-      //   .then(function (response) {
-      //     // 处理成功情况
-      //     that.OrnamentsList = response.data
-      //     console.log(response.data)
-      //   })
-      //   .catch((error) => {
-      //     console.log(error)
-      //   })
-      // this.OrnamentsList =
-      console.log(this.OrnamentsList)
+      this.form = this.$refs.boardRef.form
+      // console.log(this.heroName)
     }
   }
 }

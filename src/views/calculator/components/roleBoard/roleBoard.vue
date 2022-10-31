@@ -3,7 +3,9 @@
     <div class="leftBox">
       <role-head ref="roleHeadRef" @getRole="getRole"></role-head>
       <star-level ref="starLevelRef" @getstar="getstar"></star-level>
-      <div class="textTip"><text>更变饰品</text></div>
+      <div class="textTip">
+        <text>更变饰品</text>
+      </div>
     </div>
     <div class="numBoardBox">
       <num-board ref="numBoardRef" @getform="getform"></num-board>
@@ -21,7 +23,7 @@ export default {
   components: { roleHead, starLevel, numBoard },
   data () {
     return {
-      role: {},
+      role: '',
       form: [],
       star: 6
     }
@@ -29,17 +31,17 @@ export default {
   watch: {
   },
   methods: {
+    // 获取英灵名称
     getRole () {
-      this.role = this.$refs.roleHeadRef.role
-      // console.log('getRole', this.role)
+      this.role = this.$refs.roleHeadRef.role.roleName
     },
+    // 面板
     getform () {
       this.form = this.$refs.numBoardRef.form
-      // console.log('getForm', this.form)
     },
+    // 星级
     getstar () {
       this.star = this.$refs.starLevelRef.starValue
-      // console.log('getStar', this.star)
     }
   }
 }
