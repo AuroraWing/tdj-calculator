@@ -1,10 +1,10 @@
 <template>
   <el-container style="height: 100%">
-    <el-aside width="auto" v-if="false">
+    <el-aside width="auto">
       <common-aside ref="CommonAsideRef"></common-aside>
     </el-aside>
     <el-container>
-      <el-header v-if="false">
+      <el-header>
         <el-button @click="collapseBtn()"> &lt; </el-button>
       </el-header>
       <el-main>
