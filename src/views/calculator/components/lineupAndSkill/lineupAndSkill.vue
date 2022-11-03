@@ -1,22 +1,8 @@
 <template>
   <div class="lineupAndSkillBox">
     <div class="cardBox">
-      战阵
-      <choose-popover
-      :placement="popover.placement"
-      :width="popover.width"
-      :visible="visible.lintup"
-      :offset="popover.offset"
-      >
-        <template #reference>
-          <circular-card :data="lintup" @choose="visible.lintup = !visible.lintup"></circular-card>
-        </template>
-        <template #popUp>
-          <circular-img v-for="item in lintupArray" :key="item" :data="item"></circular-img>
-        </template>
-      </choose-popover>
+      <line-up></line-up>
     </div>
-
     <div class="cardBox">
       技能1
       <choose-popover
@@ -73,9 +59,10 @@
 import circularImg from '@/components/circularImg.vue'
 import choosePopover from '@/components/choosePopover.vue'
 import circularCard from '@/components/circularCard.vue'
+import lineUp from './components/lineup.vue'
 export default {
   name: 'lineupAndSkill',
-  components: { circularCard, choosePopover, circularImg },
+  components: { circularCard, choosePopover, circularImg, lineUp },
   data () {
     return {
       popover: {
@@ -131,7 +118,6 @@ export default {
     }
   },
   created () {
-    this.getLintup()
   },
   mounted () {
     // 页面监听，添加鼠标抬起事件，关闭popover窗口
@@ -146,20 +132,13 @@ export default {
     })
   },
   methods: {
-    async getLintup () {
-      const axios = require('axios')
-      try {
-        const res = await axios.get('http://localhost:5050/data/lineup')
-        this.lintupArray = res.data
-      } catch (error) {
-        console.error(error)
-      }
-    }
+
   }
 }
 </script>
 
 <style lang="less" scoped>
+@import '@/static/chooseCardBox.css';
 .lineupAndSkillBox {
   padding-bottom: 6px;
   height: 150px;
@@ -167,15 +146,5 @@ export default {
   border-bottom: solid 1px #a7aeb5;
   display: flex;
   justify-content: space-around;
-}
-.cardBox {
-  padding: 2px 4px;
-  width: 60px;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 13px;
 }
 </style>

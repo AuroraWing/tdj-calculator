@@ -4,7 +4,7 @@
       <common-aside ref="CommonAsideRef"></common-aside>
     </el-aside>
     <el-container>
-      <el-header>
+      <el-header v-if="false">
         <el-button @click="collapseBtn()"> &lt; </el-button>
       </el-header>
       <el-main>

@@ -1,10 +1,9 @@
 <template>
   <div class="circularBox">
     <div class="animationBox">
-      <img v-if="data.imgBg !== ''" :src="data.imgBg" alt="" @click="$emit('choose')" />
       <img
         class="bgAnimation"
-        :src="data.imgSrc"
+        :src="data.img"
         alt=""
         :title="data.title"
         @click="$emit('choose')"
@@ -59,15 +58,5 @@ img {
   position: absolute;
   cursor:pointer;
 }
-.bgAnimation {
-  background: repeating-linear-gradient(-45deg,transparent 0%,rgb(255 255 255 / 0.3) 15%,transparent 40%);
-  background-size: 300%;
-  background-position: 0% 0%;
-  transition: background-position 1s;
-}
-.bgAnimation:hover {
-  background-size: 300%;
-  background-position: 100% 100%;
-  transition: background-position 1s;
-}
+
 </style>
